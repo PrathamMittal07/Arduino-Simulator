@@ -1,70 +1,122 @@
-# Getting Started with Create React App
+# Arduino-Simulator
+A web-based Arduino simulator built with React.js &amp; Fabric.js for FOSSEE Internship 2026, IIT Bombay. Features drag-and-drop components, intelligent orthogonal wiring, real-time logic simulation, and dynamic C++ code generation for risk-free electronics learning.
+# Web-Based Interactive Arduino Simulator ⚡
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### FOSSEE Internship Project 2026 | IIT Bombay
 
-## Available Scripts
+![Project Status](https://img.shields.io/badge/Status-Active_Development-green)
+![Tech Stack](https://img.shields.io/badge/Stack-React_|_Fabric.js-blue)
+![License](https://img.shields.io/badge/License-MIT-yellow)
 
-In the project directory, you can run:
+## 📖 About The Project
 
-### `npm start`
+This project is a **browser-based simulation environment for the Arduino Uno microcontroller**, developed as part of the **FOSSEE Internship 2026 at IIT Bombay**.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The simulator aims to democratize electronics education by providing a "Safe Zone" for students to experiment with circuit logic without the risk of damaging physical hardware. It features a drag-and-drop interface, intelligent orthogonal wiring, real-time logic simulation, and dynamic C++ code generation.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## 🚀 Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **🧩 Component Library:**
+    * **Arduino Uno R3:** The central microcontroller unit.
+    * **Breadboard:** For visual organization of circuits.
+    * **LEDs (Red):** Digital output visualization with dynamic glow effects.
+    * **Push Buttons:** Momentary digital input control.
+    * **Potentiometers:** Analog input simulation via UI sliders.
 
-### `npm run build`
+* **🔌 Intelligent Wiring System:**
+    * **Auto-Snap Connections:** Wires automatically connect components to assigned pins.
+    * **Orthogonal Routing:** Implements an algorithm to route wires cleanly (90-degree bends) around the board, avoiding visual clutter ("Ghost Wires").
+    * **Z-Index Management:** Ensures wires always remain visible on top of components.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+* **⚡ Logic Simulation Engine:**
+    * Runs a JavaScript-based approximation of the Arduino runtime at **20Hz**.
+    * Supports **Digital I/O** (Button → LED) and **Analog Input** (Potentiometer → Blink Speed).
+    * Real-time visual feedback (LEDs glow/shadow updates).
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+* **📝 Dynamic Code Generation:**
+    * Real-time analysis of the visual canvas.
+    * Automatically generates valid **Arduino C++ (`.ino`)** code.
+    * Constructs `void setup()` and `void loop()` based on active connections.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+* **🛡️ Error Prevention:**
+    * **Pin Mutual Exclusion:** The UI prevents assigning the same pin to multiple components simultaneously.
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🛠️ Technology Stack
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* **Frontend Framework:** [React.js](https://reactjs.org/) - For UI components, state management, and the simulation loop.
+* **Canvas Engine:** [Fabric.js](http://fabricjs.com/) - For the interactive object model, drag-and-drop, and vector graphics rendering.
+* **Styling:** CSS3 with CSS Variables for a responsive Dark Mode theme.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+## 💻 Getting Started
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Follow these steps to run the simulator locally.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Prerequisites
+* Node.js (v14 or higher)
+* npm or yarn
 
-### Code Splitting
+### Installation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+1.  **Clone the repository**
+    ```bash
+    git clone https://github.com/PrathamMittal07/Arduino-Simulator.git
+    cd arduino-simulator
+    ```
 
-### Analyzing the Bundle Size
+2.  **Install dependencies**
+    ```bash
+    npm install
+    ```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+3.  **Start the development server**
+    ```bash
+    npm start
+    ```
 
-### Making a Progressive Web App
+4.  Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+---
 
-### Advanced Configuration
+## 🎮 How to Use
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1.  **Add Components:** Click on components in the **Sidebar** (Arduino, Breadboard, LED, etc.) to drop them onto the canvas.
+2.  **Configure Pins:** Use the dropdown menus in the Sidebar to assign specific pins (e.g., LED to D10, Button to D2).
+3.  **Check Wiring:** The simulator automatically draws orthogonal wires. Move components to see the wires adjust.
+4.  **Simulate:** Click the **Start** button in the toolbar.
+    * *Click the Button* on canvas to toggle the LED.
+    * *Slide the Potentiometer control* in the sidebar to change blink speed.
+5.  **Get Code:** Look at the **Code Panel** to copy the generated `.ino` code for use with real hardware.
 
-### Deployment
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🔮 Future Scope
 
-### `npm run build` fails to minify
+* Integration of **WebAssembly (AVR-GCC)** for compiling and running actual C++ code in the browser.
+* Support for **Servo Motors** and **LCD Screens**.
+* Cloud-based saving and sharing of projects.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+---
+
+## 👤 Author
+
+**Pratham Mittal**
+* **College:** VIT Bhopal University
+* **Registration No:** 23BCE10309
+
+---
+
+## 🙏 Acknowledgments
+
+* **FOSSEE Team, IIT Bombay** for their guidance and mentorship.
+* The open-source communities behind **React** and **Fabric.js**.
+
+---
+
+MIT License. Copyright (c) 2026 Pratham Mittal.
